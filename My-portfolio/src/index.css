@@ -6,3 +6,8 @@ body{
 h1 , h2 {
  font-family: "Robot" , sans-serif;
 }
+@layer utilities {
+    .gradient{
+        background: linear-gradient(-45cg, #302b63, #00bf8f, #0cd8d2);
+    }
+}
