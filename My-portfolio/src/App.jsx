@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom'
 import Navbar from "./components/Navbar";
 import Home from "./section/Home";
 import About from "./section/About";
@@ -6,7 +7,7 @@ import Project from "./section/Project";
 import Experienace from "./section/Experienace";
 import Testimonials from "./section/Testimonials";
 import Contact from "./section/Contact";
-import Footer from "./section/Footer";
+import Footer from './section/Footer';
 import ParticlesBackground from "./components/ParticlesBackground";
 
  
@@ -16,7 +17,7 @@ import ParticlesBackground from "./components/ParticlesBackground";
  export default function App(){
   return(
     <div className="relative gradient text-white">
-      <particlesBackground/>
+      <ParticlesBackground/>
       <Navbar/>
       <Home/>
       <About/>
