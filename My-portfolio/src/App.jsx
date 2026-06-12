@@ -10,6 +10,7 @@ import Contact from "./section/Contact";
 import Footer from './section/Footer';
 import ParticlesBackground from "./components/ParticlesBackground";
 import CustomCursor from "./components/CustomCursor";
+import OverlayMenu from "./components/OverlayMenu";
 
 
 
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <div className="relative gradient text-white">
       <CustomCursor />
+      
       <ParticlesBackground />
       <Navbar />
       <Home />
@@ -28,7 +30,7 @@ export default function App() {
       <Testimonials />
       <Contact />
       <Footer />
-      <h1> ello bhavna </h1>
+      
     </div>
   )
 

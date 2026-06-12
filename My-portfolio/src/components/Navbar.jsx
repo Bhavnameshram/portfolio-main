@@ -35,7 +35,7 @@ export default function Navbar() {
           </div>
       </nav>
 
-      <OverlayMenu />
+      <OverlayMenu isOpen = {menuOpen} onClose={() => setMenuOpen(false)} />
     </>
   );
 }
