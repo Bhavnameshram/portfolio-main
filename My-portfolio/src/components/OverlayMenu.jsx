@@ -15,7 +15,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
             transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
             style={{ backgroundColor: "rgba(0,0,0,0.95)" }}
 
-
+  
           >
             <button onClick={onClose}
               className=" absolute top-6 right-6 text-white text-3xl"
