@@ -164,11 +164,7 @@ export default function Home() {
       filter : "blur(38px)", opacity: 0.32,     
       background : "conic-gradient(from 0deg ,#1cd8d2 ,#00bf8f , #302b63 , #1cd8d2)"
     }}/>
-
-
-
-
-          <motion.img src= {avator} alt="bhavna meshram"
+        <motion.img src= {avator} alt="bhavna meshram"
           className="absolute top-1/2 -translate-y-1/2 object-contain self-none pointer-events-none"
           style={{
             right:"30px", width : "min(45vw , 780px)", maxHeight : "90vh"
