@@ -14,7 +14,7 @@ export default function IntroAnimation({ onFinish }) {
   const [visible, setVisible] = React.useState(true);
   useEffect(() => {
     if (index < greeting.length - 1) {
-      const id = setInteval(() => setIndex((i) => i + 1), 180);
+      const id = setInterval(() => setIndex((i) => i + 1), 180);
       return () => clearInterval(id);
 
     } else {
@@ -30,7 +30,7 @@ export default function IntroAnimation({ onFinish }) {
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black text-white overflow-hidden"
           initial={{ y: 0 }}
           exit={{
-            y: "-100",
+            y: -100,
             transition: {
               duration: 1.50,
               ease: [0.22, 1, 0.36, 1]
