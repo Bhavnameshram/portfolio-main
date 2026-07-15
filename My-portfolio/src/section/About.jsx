@@ -14,6 +14,9 @@ export default function About() {
           <div key={i} className={"absolute rounded-full bg-gradient-to-r from-[3302bd3] via-[#00bf8f] to-[#1cd8d2] animate-pulse ${c}"} />
         ))}
       </div>
+
+
+      
     </section>
   )
 }
