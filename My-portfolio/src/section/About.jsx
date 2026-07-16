@@ -4,8 +4,8 @@ import p from "../assets/p.jpg"
 export default function About() {
   const stats = [
     { label: "Experience", value: "6 Month" },
-    { label: "Speciality", value: "Mern stack" },
-    { label: "Focus", value: "Performace & Scalibilty" },
+    { label: "Speciality", value: "MERN stack" },
+    { label: "Focus", value: "Performance & ScalAbility" },
   ]
 
 
@@ -49,17 +49,17 @@ export default function About() {
               Bhavna Meshram
             </h2>
             <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">
-              Mern Stack Developer
+              MERN Stack Developer
             </p>
-            <p className="mt:4 text-gray-300 leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
-         i bulid Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam suscipit reprehenderit modi asperiores omnis nostrum, incidunt placeat quaerat velit praesentium aliquam fugit vero, illum cum.
+            <p className="mt-4 text-gray-400 leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl">
+        I'm a MERN Stack Developer passionate about building responsive, user-friendly, and modern web applications using MongoDB, Express.js, React, and Node.js. I enjoy solving real-world problems through clean code and continuously learning new technologies.
             </p>
-            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap3 sm:gap-4 max-w-xl">
+            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-xl">
               {stats.map((item, i) => (
                 <motion.div key={i} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ dealy: 0.5 * i, duration: 0.4 }}
+                  transition={{ delay: 0.5 * i, duration: 0.4 }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
                   <div className="text-sm text-gray-400">{item.label}</div>
@@ -68,9 +68,9 @@ export default function About() {
               ))}
             </div>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
-  <a href="#projects" className=" inline-flex items-center justify-center rounded-lg bg-white text-black font-semibold px-5 py-3 hover:bg-gray-200 transition">
+  <a href="#project" className=" inline-flex items-center justify-center rounded-lg bg-white text-black font-semibold px-5 py-3 hover:bg-gray-200 transition">
     View Projects</a>
-  <a href="#Contant" className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 text-white px-5 py-3 hover:bg-white/20 transition ">
+  <a href="#contant" className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 text-white px-5 py-3 hover:bg-white/20 transition ">
   Get in touch</a>
             </div>
 
@@ -84,7 +84,7 @@ export default function About() {
           <h3 className=" text-gray-300 leading-relaxed text-base sm:text-lg">
             About Me
           </h3>
-          <p className="mt:4 text-gray-400 text-base sm:text-lg">
+          <p className="mt-4 text-gray-400 text-base sm:text-lg">
             I  MernStackDeveloper Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque animi iste est impedit aliquid fugit beatae quia excepturi voluptatum unde.
           </p>
         </motion.div>

@@ -126,8 +126,9 @@ export default function Skills() {
         className="relative w-full overflow-hidden">
         <motion.div
           ref={trackRef}
+          style={{ x, whiteSpace: "nowrap", willChange: "transform" }}
           className="flex gap-10 text-6xl text-[#1cd8d2]"
-          style={{ x, whiteSpace: "nowrap", willChange: "transform" }}>
+          >
           {repeated.map((s, i) => (
             <div key={i} className="flex flex-col items-center gap-2 min-w-[120px]"
               aria-label={s.name}
