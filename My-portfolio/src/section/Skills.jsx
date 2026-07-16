@@ -2,7 +2,7 @@ import { FaJava, FaReact } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript, SiTailwindcss, SiFastapi, SiPython, SiDocker, SiMongodb, SiAngular } from "react-icons/si";
 import { DiNodejsSmall } from "react-icons/di";
 import { motion, useMotionValue } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 
 export default function Skills() {
   const skills = [
@@ -21,7 +21,7 @@ export default function Skills() {
   const repeated = [...skills, ...skills];
   const [dir, setDir] = useState(-1);
   const [active, setActive] = useState(false);
-  const setimeRef = useRef(null);
+  const sectionRef = useRef(null);
   const trackRef = useRef(null);
   const touchY = useRef(null);
   const x = useMotionValue(0);
@@ -30,9 +30,10 @@ export default function Skills() {
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
+    
     const io = new IntersectionObserver((
       [entry]) => {
-      sectionActive(entry.isIntersecting && entry.intersectionRatio > 0.1);
+      setActive(entry.isIntersecting && entry.intersectionRatio > 0.1);
     },
       {
         threshold: [0.1]
@@ -41,22 +42,47 @@ export default function Skills() {
     io.observe(el);
     return () => io.disconnect();
   }, [])
+   
+
+  useEffect(()=>{
+    if(!active) return;
+    const onwheel =(e) => setDir(e.daltaY > 0 ? -1 : 1);
+    const onTouchStart =(e) => (touchY.current = e.touches[0].clientY);
+    const onTouchMove =(e)=> {
+      if (touchY.current ==null)return;
+      const delta = e.touches[0].clientY -touchY.current;
+      SiDir( delta = 0 ? 1: -1);
+      touchY.current= e.touches[0].clientY;
+
+    };
+    window.addEventListener('wheel',onwheel,{passive : true});
+    window.addEventListener('touchstart',onTouchStart,{passive : true});
+    window.addEventListener('touchmove',onTouchMove,{passive : true});
+
+
+    return()=>{
+      window.removeEventListener('wheel', onwheel);
+      window.removeEventListener('touchstart', ontouchstart);
+      window.removeEventListener('touchmove', ontouchmove);
+    }
+
+  },[active]);
 
 
 
   return (
-    <section id="Skills"
+    <section id="skills"
       ref={sectionRef}
-      className="h-1/2 w-full pb-8 flex flex-col items-center justify-center realtive bg-black text-white overflow-hidden">
+      className="min-h-screen w-full pb-8 flex flex-col items-center justify-center relative bg-black text-white overflow-hidden">
       <div className=" absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-0 w-[300px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2]
-        opacity-20 blur-[120px] animate-plus"
+        opacity-20 blur-[120px] animate-pulse"
         />
       </div>
       <div className="absolute bottom-1/4 right-0 w-[300px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2]
-        opacity-20 blur-[120px] animate-plus delat-500"
+        opacity-20 blur-[120px] animate-pulse delay-500"
       />
-      <motion.h2 className=" text-4xl mt-5 sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1cd8d2] via-[#00bg8f] to-[#302b63] z-10"
+      <motion.h2 className=" text-4xl mt-5 sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] z-10"
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -71,7 +97,7 @@ export default function Skills() {
         Modern Application  | Modern technology
       </motion.p>
       <div
-        className="realtive w-full overflow-hidden">
+        className="relative w-full overflow-hidden">
         <motion.div
           ref={trackRef}
           className="flex gap-10 text-6xl text-[#1cd8d2]">
