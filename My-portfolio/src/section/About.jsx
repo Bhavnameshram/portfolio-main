@@ -5,7 +5,7 @@ export default function About() {
   const stats = [
     { label: "Experience", value: "6 Month" },
     { label: "Speciality", value: "MERN stack" },
-    { label: "Focus", value: "Performance & ScalAbility" },
+    { label: "Focus", value: "Performance & Scalability" },
   ]
 
 
