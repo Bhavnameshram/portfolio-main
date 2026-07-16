@@ -2,7 +2,7 @@ import { FaJava, FaReact } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript, SiTailwindcss, SiFastapi, SiPython, SiDocker, SiMongodb, SiAngular } from "react-icons/si";
 import { DiNodejsSmall } from "react-icons/di";
 import { motion, useMotionValue } from "framer-motion";
-import { useEffect, useState,useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Skills() {
   const skills = [
@@ -30,7 +30,7 @@ export default function Skills() {
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
-    
+
     const io = new IntersectionObserver((
       [entry]) => {
       setActive(entry.isIntersecting && entry.intersectionRatio > 0.1);
@@ -42,31 +42,57 @@ export default function Skills() {
     io.observe(el);
     return () => io.disconnect();
   }, [])
-   
 
-  useEffect(()=>{
-    if(!active) return;
-    const onwheel =(e) => setDir(e.daltaY > 0 ? -1 : 1);
-    const onTouchStart =(e) => (touchY.current = e.touches[0].clientY);
-    const onTouchMove =(e)=> {
-      if (touchY.current ==null)return;
-      const delta = e.touches[0].clientY -touchY.current;
-      SiDir( delta = 0 ? 1: -1);
-      touchY.current= e.touches[0].clientY;
+
+  useEffect(() => {
+    if (!active) return;
+    const onWheel = (e) => setDir(e.deltaY > 0 ? -1 : 1);
+    const onTouchStart = (e) => (touchY.current = e.touches[0].clientY);
+    const onTouchMove = (e) => {
+      if (touchY.current == null) return;
+      const delta = e.touches[0].clientY - touchY.current;
+      setDir(delta > 0 ? 1 : -1);
+      touchY.current = e.touches[0].clientY;
 
     };
-    window.addEventListener('wheel',onwheel,{passive : true});
-    window.addEventListener('touchstart',onTouchStart,{passive : true});
-    window.addEventListener('touchmove',onTouchMove,{passive : true});
+    window.addEventListener('wheel', onWheel, { passive: true });
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
 
 
-    return()=>{
-      window.removeEventListener('wheel', onwheel);
-      window.removeEventListener('touchstart', ontouchstart);
-      window.removeEventListener('touchmove', ontouchmove);
+    return () => {
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
     }
 
-  },[active]);
+  }, [active]);
+
+  useEffect(() => {
+    let id;
+    let last = performance.now();
+    const SPEED = 80;
+
+    const tick = (now) => {
+      const dt = (now - last) / 1000;
+      last = now;
+      let next = x.get() + SPEED * dir * dt;
+      const loop = trackRef.current?.scrollWidth / 2 || 0;
+
+      if (loop) {
+        if (next <= -loop) next += loop;
+        if (next >= 0) next -= loop;
+
+      }
+      x.set(next)
+      id = requestAnimationFrame(tick)
+    }
+    id = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(id);
+
+  }, [dir, x]);
+
+
 
 
 
@@ -100,7 +126,8 @@ export default function Skills() {
         className="relative w-full overflow-hidden">
         <motion.div
           ref={trackRef}
-          className="flex gap-10 text-6xl text-[#1cd8d2]">
+          className="flex gap-10 text-6xl text-[#1cd8d2]"
+          style={{ x, whiteSpace: "nowrap", willChange: "transform" }}>
           {repeated.map((s, i) => (
             <div key={i} className="flex flex-col items-center gap-2 min-w-[120px]"
               aria-label={s.name}
