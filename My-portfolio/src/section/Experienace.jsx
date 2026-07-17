@@ -1,4 +1,5 @@
-import { useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useMemo, useEffect, useState } from "react";
 
 
 
@@ -32,7 +33,7 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
 
   if (layout === "desktop") {
     return (
-      <div className=" realative flex flex-1 justify-center items-center min-w-0">
+      <div className=" relative flex flex-1 justify-center items-center min-w-0">
         <motion.div className=" z-10 w-7 h-7 rounded-full  bg-white shadow-[0_0_0_8px_rgba(255,255,255,0.1)]"
           style={{ scale, opacity }}
         >
@@ -44,7 +45,7 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
         <motion.article className={`absolute ${idx % 2 === 0 ? "bottom-12" : "top-12"}
         bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-7 w-[320px] shadow-lg`}
           style={{ opacity, y, maxWidth: "90vw" }}
-          transtion={{ duration: 0.4, delay: idx * 0.15 }}
+          transition={{ duration: 0.4, delay: idx * 0.15 }}
         >
           <h3 className="text-xl font-semibold">
             {exp.description}
@@ -61,14 +62,66 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
       </div>
     )
   }
+  return (
 
+    <div className="relative flex items-start">
+      <motion.div className="absolute -left-[14px] top-3 z-10 w-7 h-7 rounded-full bg-white shadow-[0_0_0_8px_rgba(255,255,255,0.1)]
+  "
+        style={{ opacity, x }}
+        transition={{ duration: 0.4, delay: idx * 0.15 }}
+      >
+        <h3 className=" text-lg font-semibold break-words">
+          {exp.role}
+        </h3>
+        <p className="text-sm text-gray-400 mb-2 break-words">
+          {exp.company} | {exp.duration}
+        </p>
+        <p className="text-sm text-gray-400  break-words">
+          {exp.description}
 
+        </p>
+      </motion.div>
+    </div>
+  )
 }
 
 export default function Experienace() {
+  const sceneRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+  const SCENE_HEIGHT_VH = isMobile ? 160 * experiences.length : 120 * experiences.length;
+
+  const { scrollYProgress } = useScroll({
+    target: sceneRef,
+    offset: ["start start", "end end"]
+  })
+  const thresholds = useMemo(() => experiences.map((_, i) => (i + 1) / experiences.length), [])
+  const lineSize = useTransform(scrollYProgress, (v) => `${v * 100}%`)
   return (
     <section id="experience" className="relative bg-black text-white">
+      <div ref={sceneRef}
+        style={{ height: `${SCENE_HEIGHT_VH}vh`, minHeight: "120vh" }}
+        className="relative"
+      >
+        <div className="sticky top-0 h-screen flex flex-col">
+          <h2 className="text-4xl sm:text-5xl font-semibold mt-5 text-center">
+            Experience
+          </h2>
+          <div className="flex flex-1 items-center justify-center px-6 pb-10">
+            {!isMobile && (
 
-    </section>
+            )
+
+
+            }
+          </div>
+        </div>
+      </div>
+    </section >
   )
 }
