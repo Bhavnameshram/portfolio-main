@@ -7,7 +7,7 @@ import { useRef, useMemo, useEffect, useState } from "react";
 
 const experiences = [
   {
-    role: "Fronted developer",
+    role: "Fronted Developer",
     company: "GH Raisoni Collage",
     duration: "6 Months",
     description: "Built Application"
@@ -114,11 +114,55 @@ export default function Experienace() {
           </h2>
           <div className="flex flex-1 items-center justify-center px-6 pb-10">
             {!isMobile && (
+              <div className="relative w-full max-w-7xl">
+                <div className="relative h-[6px] bg-white/15 rounded">
+                  <motion.div
+                    className=" absolute left-0 top-0 h-[6px] bg-white rounded origin-left"
+                    style={{ width: lineSize }}>
 
-            )
+                  </motion.div>
+                </div>
+                <div className="relative flex justify-center mt-0">
+                  {experiences.map((exp, idx) => (
+                    <ExperienceItem
+                      key={idx}
+                      exp={exp}
+                      idx={idx}
+                      start={idx === 0 ? 0 : thresholds[idx - 1]}
+                      end={thresholds[idx]}
+                      scrollYProgress={scrollYProgress}
+                      layout="desktop"
+                    />
+                  ))}
 
+                </div>
+              </div>
+            )}
+            {isMobile && (
+              <div className="relative w-full max-w-md">
+                <div className=" absolute left-0 top-0 bottom-0 w-[6px] bg-white/15 rounded">
+                  <motion.div className="absolute top-0 left-0 w-[6px] bg-white rounded origin-top"
+                    style={{ height: lineSize }}
+                  >
 
-            }
+                  </motion.div>
+
+                </div>
+                <div className="relative flex flex-col gap-10 ml-10 mt-6 pb-28">
+                  {experiences.map((exp,idx) => (
+                    <ExperienceItem
+                     key={idx}
+                      exp={exp}
+                      idx={idx}
+                      start={idx === 0 ? 0 : thresholds[idx - 1]}
+                      end={thresholds[idx]}
+                      scrollYProgress={scrollYProgress}
+                      layout="mobile"
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
