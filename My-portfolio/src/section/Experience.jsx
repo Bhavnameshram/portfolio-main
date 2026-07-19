@@ -7,19 +7,19 @@ import { useRef, useMemo, useEffect, useState } from "react";
 
 const experiences = [
   {
-    role: "Fronted Developer",
+    role: "Frontend Developer",
     company: "GH Raisoni Collage",
     duration: "6 Months",
     description: "Built Application"
   },
   {
-    role: "Fronted developer",
+    role: "Frontend developer",
     company: "GH Raisoni Collage",
     duration: "6 Months",
     description: "Built Application"
   },
   {
-    role: "Fronted developer",
+    role: "Frontend developer",
     company: "GH Raisoni Collage",
     duration: "6 Months",
     description: "Built Application"
@@ -49,10 +49,9 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
         >
           <h3 className="text-xl font-semibold">
             {exp.description}
-
-          </h3>
+</h3>
           <p className=" text-md text-gray-400 mb-3">
-            {exp.description} | {exp.duration}
+            {exp.company} | {exp.duration}
           </p>
           <p className="text-md text-gray-300 break-words ">
             {exp.description}
@@ -85,7 +84,7 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
   )
 }
 
-export default function Experienace() {
+export default function Experience() {
   const sceneRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {

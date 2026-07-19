@@ -4,7 +4,7 @@ import Home from "./section/Home";
 import About from "./section/About";
 import Skills from "./section/Skills";
 import Project from "./section/Project";
-import Experienace from "./section/Experienace";
+import Experienace from "./section/Experience";
 import Testimonials from "./section/Testimonials";
 import Contact from "./section/Contact";
 import Footer from './section/Footer';
