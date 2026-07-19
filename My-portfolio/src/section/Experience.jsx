@@ -1,10 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useMemo, useEffect, useState } from "react";
 
-
-
-
-
 const experiences = [
   {
     role: "Frontend Developer",
@@ -49,7 +45,7 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
         >
           <h3 className="text-xl font-semibold">
             {exp.description}
-</h3>
+          </h3>
           <p className=" text-md text-gray-400 mb-3">
             {exp.company} | {exp.duration}
           </p>
@@ -148,9 +144,9 @@ export default function Experience() {
 
                 </div>
                 <div className="relative flex flex-col gap-10 ml-10 mt-6 pb-28">
-                  {experiences.map((exp,idx) => (
+                  {experiences.map((exp, idx) => (
                     <ExperienceItem
-                     key={idx}
+                      key={idx}
                       exp={exp}
                       idx={idx}
                       start={idx === 0 ? 0 : thresholds[idx - 1]}
