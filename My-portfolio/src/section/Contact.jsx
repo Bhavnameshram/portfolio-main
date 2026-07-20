@@ -10,7 +10,7 @@ const PUBLIC_ID = import.meta.env.VITE_PUBLIC_KEY;
 export default function Contact(){
     const [formdata , setformData]= useState({
         name : "",
-        email :"";
+        email :"",
         service:"",
         budget:"",
         idea :"",
