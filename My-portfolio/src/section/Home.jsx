@@ -12,7 +12,7 @@ const socials = [
   { Icon: FaXTwitter, label: "X", href: "href:/" },
 ]
 
-const glowVarients = {
+const glowVariants = {
   initial: {scale :1, y: 0 , filter : "drop-shadow(0 0 0 rgba (0,0,0,0))"},
   hover: {
     scale:1.2, y:-3,
