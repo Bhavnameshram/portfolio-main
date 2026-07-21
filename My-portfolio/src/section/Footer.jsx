@@ -23,6 +23,8 @@ const glowVarients = {
 export default Footer() ;{
   return (
     <footer className=" relative overflow-hidden bg-black">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_60%_at_70%_35%,rgba(13.88,202,0.35),transparent_70%")]"/>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_55%_at_30%_70%,rgba(16.185,129,0.30),transparent_70%")]""/>
       <motion.div className=" relative z-10 px-4 sm:px-8 lg:px-10 py-16 md:py-20 flex flex-col items-center text-center space-y-6"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -43,8 +45,29 @@ export default Footer() ;{
         <div className=" h-[3px] w-24 md:w-32 rounded-full bg-gradient-to-r from-[#0d58cc] via-cyan-300 to-emerald-400" />
       
       <div className=" flex gap-5 text-2xl md:text-3xl">
-        {}
-        </div></motion.div>
+        {socials.map(({Icon ,label ,href}) =>(
+          <motion.a href={href}
+          key={label}
+          aria-label={label}
+          target="_blank"
+          rel="noopener noreferrer"
+          variants={glowVarients}
+          initial="initial"
+          whileHover= "hover"
+          whileTape="tap"
+          className="text-gray-300 transition-colors duration-200 inline-flex items-center justify-center"
+          >
+        
+        <Icon/></motion.a>
+        ))}
+        </div>
+        <p className="text-gray-300 italic max-w-xl">
+          "Success is when preparation meets opportunity."
+        </p>
+        <p className="text-xs text-gray-400">
+           &copy; {new Date().getFullYear()} Bhavna Meshram. All rights reserved.        </p>
+        </motion.div>
+       
     </footer>
   )
 }
