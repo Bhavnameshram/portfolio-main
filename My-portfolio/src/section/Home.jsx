@@ -9,7 +9,7 @@ import avator from"../assets/avator.png";
 const socials = [
   { Icon: FaGithub, label: "GitHub", href: "href:/" },
   { Icon: FaLinkedin, label: "Linkeddin", href: "href:/" },
-  { Icon: FaXTwitter, label: "X", href: "href:/" }
+  { Icon: FaXTwitter, label: "X", href: "href:/" },
 ]
 
 const glowVarients = {
