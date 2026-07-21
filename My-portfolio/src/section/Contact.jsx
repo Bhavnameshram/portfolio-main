@@ -172,7 +172,7 @@ return (
                         {errors.idea && <p className="text-red-500 text-xs">{errors.idea}</p>}
                     </div>
                     {status && (
-                        <p className="">
+                        <p className={` text-sm ${status === "success" ? " text-green-400" : status === "error" ? "text-red-400" : "text-yellow-400"}`}>
                             {status === "sending" ? "sending...": status === "success"? "Message sent successfully ✅" : "Something went wrong ❌"}
                         </p>
                     )}
