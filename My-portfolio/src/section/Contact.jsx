@@ -171,6 +171,11 @@ return (
                         ></textarea>
                         {errors.idea && <p className="text-red-500 text-xs">{errors.idea}</p>}
                     </div>
+                    {status && (
+                        <p className="">
+                            {status === "sending" ? "sending...": status === "success"? "Message sent successfully ✅" : "Something went wrong ❌"}
+                        </p>
+                    )}
                 </form>
             </motion.div>
 
