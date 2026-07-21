@@ -13,11 +13,11 @@ const socials = [
 ]
 
 const glowVariants = {
-  initial: {scale :1, y: 0 , filter : "drop-shadow(0 0 0 rgba (0,0,0,0))"},
+  initial: {scale :1, y: 0 , filter : "drop-shadow(0 0 0 rgba(0,0,0,0))"},
   hover: {
     scale:1.2, y:-3,
-    filter : "drop-shadow (0 0 8px rgba(13,88,204,0.9)) drop-shadow(0 0 10px rgba(16, 185, 129,0.8))",
-    transition :{type : "spring ", stiffness: 300 , damping:15}
+    filter : "drop-shadow(0 0 8px rgba(13,88,204,0.9)) drop-shadow(0 0 10px rgba(16, 185, 129,0.8))",
+    transition :{type : "spring", stiffness: 300 , damping:15}
 
   },
   tap : {scale :0.95 ,y:0, transition: {duration:0.88}}
@@ -26,7 +26,7 @@ const glowVariants = {
 
 
 export default function Home() {
-  const roles = useMemo(() => ["Web Developer", "MernStackDeveloper"], [])
+  const roles = useMemo(() => ["Web Developer", "Mern Stack Developer"], [])
   const [index, setIndex] = React.useState(0);
   const [subIndex, setSubIndex] = React.useState(0);
   const [deleting, setDeleting] = React.useState(false);
@@ -71,7 +71,7 @@ export default function Home() {
 
         </div>
         <div className=" absolute bottom-0 right-0
-  w-[70vw] sm:w-[z-50vw] md:w-[40vw]
+  w-[70vw] sm:w-[50vw] md:w-[40vw]
   h-[70vw] sm:h-[50vw] md:h-[40vw]
   max-w-[500px] max-h-[500px]
   rounded-full
@@ -111,7 +111,7 @@ export default function Home() {
                 Bhavna Meshram
               </span>
             </motion.h1>
-            <motion.p className=" mt-6 text-base sm:text-lg md:text-xl text-gray-300 mx-w-2xl max-auto lg:mx-0"
+            <motion.p className=" mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl max-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -119,7 +119,7 @@ export default function Home() {
 
             >
 
-              I turn complex ides into seamless, high-impact web experience- buliding modern, and lighning-fast application that make a differecec
+              I turn complex ideas into seamless, high-impact web experience- buliding modern, and lighning-fast application that make a differecec
 
             </motion.p>
             <motion.div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6"
@@ -134,15 +134,15 @@ export default function Home() {
                 className=" px-6 py-3 rounded-full text-lg font-medium text-black bg-white hover:bg-gray-200 shadow-lg hover:scale-105 transition-all
     "> My Resume </a>
             </motion.div>
-            <div className="mt-10 flex - gap-5 text-2xl md:text-3xl justify-center lg:justify-start">
+            <div className="mt-10 flex gap-5 text-2xl md:text-3xl justify-center lg:justify-start">
               {socials.map(({ Icon, label, href }) => (
                 <motion.a 
                 href={href}
                 key={label}
-                target="black" 
+                target="_black" 
                 aria-label={label}
                 rel="noopener noreferrer"
-                varients={glowVarients} 
+                variants={glowVariants} 
                 initial="initial"
                 whileHover="hover"
                 whileTap="tap"
@@ -158,14 +158,14 @@ export default function Home() {
           </div>
         </div>
         <div className=" relative hidden lg:block">
-    <div  className=" absolute top-1/2 -translate-1/2 pointer-events-none"
+    <div  className=" absolute top-1/2 -translate-x-1/2 pointer-events-none"
     style={{
       right: "10px", width : "min(22vw,410px)" , height : "min(40vw, 760px)", borderRadius: "50%",
       filter : "blur(38px)", opacity: 0.32,     
       background : "conic-gradient(from 0deg ,#1cd8d2 ,#00bf8f , #302b63 , #1cd8d2)"
     }}/>
         <motion.img src= {avator} alt="bhavna meshram"
-          className="absolute top-1/2 -translate-y-1/2 object-contain self-none pointer-events-none"
+          className="absolute top-1/2 -translate-y-1/2 object-contain self-center pointer-events-none"
           style={{
             right:"30px", width : "min(45vw , 780px)", maxHeight : "90vh"
           }}
