@@ -3,7 +3,7 @@ import React from "react";
 import p from "../assets/p.jpg"
 export default function About() {
   const stats = [
-    { label: "Experience", value: "6 Month" },
+    { label: "Experience", value: "6 Months" },
     { label: "Speciality", value: "MERN stack" },
     { label: "Focus", value: "Performance & Scalability" },
   ]
@@ -59,7 +59,7 @@ export default function About() {
                 <motion.div key={i} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 * i, duration: 0.4 }}
+                  transition={{ delay: 0.2 * i, duration: 0.4 }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
                   <div className="text-sm text-gray-400">{item.label}</div>
@@ -85,7 +85,7 @@ export default function About() {
             About Me
           </h3>
           <p className="mt-4 text-gray-400 text-base sm:text-lg">
-            I  MernStackDeveloper Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque animi iste est impedit aliquid fugit beatae quia excepturi voluptatum unde.
+            I am a MERN Stack Developer with a strong interest in building responsive and user-friendly web applications. I enjoy learning new technologies, solving real-world problems, and continuously improving my development skills.
           </p>
         </motion.div>
       </div>

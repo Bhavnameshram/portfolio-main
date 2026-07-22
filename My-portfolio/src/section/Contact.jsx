@@ -22,7 +22,7 @@ export default function Contact() {
         setFormData((p) => ({ ...p, [name]: value }));
         if (errors[name]) setErrors((p) => ({ ...p, [name]: "" }));
     }
-    const validateform = () => {
+    const validateForm = () => {
         const required = ["name", "email", "service", "idea"];
         const newErrors = {};
         required.forEach((f) => !formData[f].trim() && (newErrors[f] = "fill this field"));
@@ -105,7 +105,7 @@ export default function Contact() {
                                 placeholder="Your Email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className={`p-3 rounded-md bg-white/10 border ${errors.name ? "border-red-500" : "border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+                                className={`p-3 rounded-md bg-white/10 border ${errors.email ? "border-red-500" : "border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
                             />
                             {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
                         </div>
@@ -141,7 +141,7 @@ export default function Contact() {
                                     placeholder="Your Budget"
                                     onChange={handleChange}
                                     value={formData.budget}
-                                    className={`p-3 rounded-md bg-white/10 border ${errors.service ? "border-red-500" : "border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+                                    className={`p-3 rounded-md bg-white/10 border ${errors.budget ? "border-red-500" : "border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
                                 />
                                 {errors.budget && <p className="text-red-500 text-xs">{errors.budget}</p>}
                             </div>
@@ -153,7 +153,7 @@ export default function Contact() {
                                 placeholder="Enter Your Idea"
                                 value={formData.idea}
                                 onChange={handleChange}
-                                className={`p-3 rounded-md bg-white/10 border ${errors.service ? "border-red-500" : "border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
+                                className={`p-3 rounded-md bg-white/10 border ${errors.idea ? "border-red-500" : "border-gray-500"} text-white focus:outline-none focus:border-blue-500`}
                             ></textarea>
                             {errors.idea && <p className="text-red-500 text-xs">{errors.idea}</p>}
                         </div>
