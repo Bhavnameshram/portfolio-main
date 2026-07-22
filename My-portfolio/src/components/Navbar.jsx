@@ -74,7 +74,7 @@ window.addEventListener("scroll", handleScroll, { passive: true });
           <button onClick={() => setMenuOpen(true)}
 
             className="text-white text-3xl focus:outline-none"
-            aria-label="open Menu"
+            aria-label="Open Menu"
           >
             <FiMenu />
           </button>
