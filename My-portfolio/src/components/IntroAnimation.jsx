@@ -2,8 +2,6 @@ import {motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useMemo } from "react";
 
 
-
-
 export default function IntroAnimation({ onFinish }) {
   const greeting = useMemo(() => [
     "Hello", "नमस्ते", "Hola", "Bonjour",
@@ -30,10 +28,10 @@ export default function IntroAnimation({ onFinish }) {
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black text-white overflow-hidden"
           initial={{ y: 0 }}
           exit={{
-            y: -100,
+            y: "-100",
             transition: {
               duration: 1.50,
-              ease: [0.22, 1, 0.36, 1]
+              ease: [0.22, 1, 0.36, 1],
             },
           }}
 
