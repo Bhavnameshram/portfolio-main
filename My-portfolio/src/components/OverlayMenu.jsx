@@ -3,7 +3,7 @@ import { FiX } from "react-icons/fi";
 
 export default function OverlayMenu({ isOpen, onClose }) {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
-  const origin = isMobile ? "95% 8%" : " 50% 8%"
+  const origin = isMobile ? "95% 8%" : "50% 8%";
   return (
     <AnimatePresence>
       {
@@ -35,7 +35,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
               ].map((item, index) => (
                 <motion.li key={item}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
                 >
                   <a href={`#${item.toLowerCase()}`}
