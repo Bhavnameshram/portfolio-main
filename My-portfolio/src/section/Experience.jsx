@@ -44,7 +44,7 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
           transition={{ duration: 0.4, delay: idx * 0.15 }}
         >
           <h3 className="text-xl font-semibold">
-            {exp.description}
+            {exp.role}
           </h3>
           <p className=" text-md text-gray-400 mb-3">
             {exp.company} | {exp.duration}

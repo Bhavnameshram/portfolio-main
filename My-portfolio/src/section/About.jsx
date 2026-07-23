@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import p from "../assets/p.jpg"
+import p from "../assets/passp.png"
 export default function About() {
   const stats = [
     { label: "Experience", value: "6 Months" },
