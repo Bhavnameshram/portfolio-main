@@ -61,21 +61,26 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
 
     <div className="relative flex items-start">
       <motion.div className="absolute -left-[14px] top-3 z-10 w-7 h-7 rounded-full bg-white shadow-[0_0_0_8px_rgba(255,255,255,0.1)]
-  "
+  "  style={{ scale, opacity }}
+      >
+      </motion.div>
+      <motion.article className="bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-5 w-[90vw] max-w-sm ml-6 shadow-lg"
         style={{ opacity, x }}
         transition={{ duration: 0.4, delay: idx * 0.15 }}
       >
-        <h3 className=" text-lg font-semibold break-words">
+        <h3 className="text-lg font-semibold wrap-break-words">
           {exp.role}
         </h3>
         <p className="text-sm text-gray-400 mb-2 break-words">
           {exp.company} | {exp.duration}
         </p>
-        <p className="text-sm text-gray-400  break-words">
+        <p className="text-sm text-gray-400 mb-2 break-words">
           {exp.description}
-
         </p>
-      </motion.div>
+      </motion.article>
+
+
+
     </div>
   )
 }
